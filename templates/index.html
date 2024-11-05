@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>title</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<a href="{{ url_for('index') }}">
+
+<img src="{{ url_for('serve_image', filename='logo.jpg') }}" alt="Logo" class="logo" onclick="refreshPage()"></a>
+
+<form action="/test" method="POST">
+
+<input type="text" id="url" name="url" placeholder="http / https" required pattern="https?://.*">
+
+<div class="toolbar"></div>
+
+<div class="wrapper-dropdown">
+
+<i class="fas fa-bars triple-line-icon" id="triple-line-icon"></i>
+
+<div class="wrapper" id="wrapper">
+
+<div class="text" id="testing-title">Testing</div>
+
+<div class="options-group">
+
+<div class="testing-options">
+
+<input type="checkbox" id="buttons-checkbox" name="testing_option" value="buttons" checked>
+<label id="buttons-text" for="buttons-checkbox">buttons Testing</label><br>
+
+<input type="checkbox" id="inputs-checkbox" name="testing_option" value="inputs" checked>
+<label id="inputs-text" for="inputs-checkbox">inputs Testing</label><br>
+
+<input type="checkbox" id="dropdownoptions-checkbox" name="testing_option" value="dropdownoptions" checked>
+<label id="dropdownoptions-text" for="dropdownoptions-checkbox">drop-down options Testing</label><br>
+
+<div class="browser-option">
+<div class="text" id="browser-title">Browser</div>
+<input type="radio" id="chrome" name="browser" value="chrome" checked style="display: none;">
+<label for="chrome" class="browser-checkbox-label">
+<div class="browser-icon">
+<i class="fab fa-chrome"></i>
+<div class="browser-text">Google Chrome</div></div></label></div>
+
+<div class="browser-option">
+<input type="radio" id="edge" name="browser" value="edge" style="display: none;">
+<label for="edge" class="browser-checkbox-label">
+<div class="browser-icon">
+<i class="fab fa-edge"></i>
+<div class="browser-text">Microsoft Edge</div></div></label></div>
+
+<div class="browser-option">
+<input type="radio" id="firefox" name="browser" value="firefox" style="display: none;">
+<label for="firefox" class="browser-checkbox-label">
+<div class="browser-icon">
+<i class="fab fa-firefox"></i>
+<div class="browser-text">Mozilla Firefox</div></div></label></div>
+
+<div class="theme-dropdown" id="themeDropdown">
+<span id="toggleButton" class="theme-icon">
+<i class="fa-solid fa-circle-half-stroke"></i></span>  
+<div class="theme-dropdown-content">
+<label class="theme-switch-light">
+<input type="radio" id="light-theme-toggle" name="theme" value="light">
+<label class="theme-switch-dark">
+<input type="radio" id="dark-theme-toggle" name="theme" value="dark"></div></div></div></div></div>
+
+<div class="loading-container">
+<div class="loading"></div>
+<div class="cancel-text" id="cancelText" onclick="cancelTesting()">Cancel</div></div>
+
+<button class="start" type="submit" onclick="search()">
+<div class="start">Start</div></div></button></form></div>
+
+<div id="error-container">
+<div id="error"></div>
+
+<div class="tab" id="tab"></div>
+<div class="result" id="result"></div>
+<i id="exitIcon" class="fas fa-times exit-icon" onclick="exitresults()"></i>
+
+<script src="{{ url_for('serve_static', filename='script.js') }}" async></script>
+</body>
+</html>
